@@ -53,10 +53,67 @@
 
 # Step 2: build the image
 ```zsh
-        $ docker-compose build
+        $ sudo docker-compose build
 ```
 
 # Step 3: create the “src” directory and the command “mix” alias.
 ```zsh 
     $ mkdir src
     $ alias mix="sudo docker-compose run --rm phoenix mix"
+```
+# Step 4: Initialize and configure a new Phoenix application
+## “/app” (the default work directory).
+
+
+```zsh 
+    $ mix phx.new . --app app
+```
+
+### Configure your database configuration on file src/config/dev.exs to point to the db container.
+```yml
+    hostname: "db", 
+```
+
+```zsh
+    $ cd src
+    $ mix ecto.create
+    $ mix ecto.migrate
+
+    or 
+    sudo docker-compose run web mix ecto.create
+    sudo docker-compose run web mix ecto.migrate
+```
+
+# Step 5: Start the application
+
+```zsh
+    $ cd ..
+    $ sudo docker-compose up
+```    
+
+
+# Phoenix  CND
+
+## HTML
+    docker-compose run --rm phoenix mix phx.gen.html Sales Category categories name:string notes:string
+
+    docker-compose run --rm phoenix mix phx.gen.json Account User users email:string password:string is_active:boolean 
+
+    docker-compose run --rm phoenix mix phx.gen.html Sales Shop shops name:string brand:string address:string notes:string
+
+## Schema
+    docker-compose run --rm phoenix mix phx.gen.schema Sale.Category name:string notes:string
+
+## Database
+    docker-compose run phoenix mix ecto.create
+
+## Migrate
+    docker-compose run --rm phoenix mix ecto.migrate
+
+## Routes
+    docker-compose run --rm phoenix mix phx.routes
+
+## Run 
+    
+    docker-compose run phoenix mix phx.server
+    docker-compose up

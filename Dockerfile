@@ -16,10 +16,8 @@ ENV APP_HOME /app
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 
-
-
 # Compile the project
-# CMD ["mix", "phx.server"]
+CMD ["mix", "phx.server"]
 
 # Start exworker
 # CMD MIX_ENV=$ENVIRONMENT elixir --sname $APP_NAME -S mix run --no-halt
