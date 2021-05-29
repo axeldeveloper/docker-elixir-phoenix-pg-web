@@ -9,7 +9,9 @@ defmodule App.Car.Cars do
     field :plaque, :string
     field :renavam, :string
     field :year, :integer
-    field :category_id, :id
+    # field :category_id, :id
+
+    belongs_to :category, App.Car.Category
 
     timestamps()
   end

@@ -6,6 +6,8 @@ defmodule App.Car.Category do
     field :description, :string
     field :name, :string
 
+    has_many :cars, App.Car.Cars
+
     timestamps()
   end
 
