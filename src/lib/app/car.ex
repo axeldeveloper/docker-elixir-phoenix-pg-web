@@ -114,7 +114,13 @@ defmodule App.Car do
 
   """
   def list_cars do
-    Repo.all(Cars)
+    Repo.all(Cars) |> Repo.preload(:category)
+
+    #teams_users =
+    #  from(t in Team, where: t.owner_id == ^user_id)
+    #  |> Repo.all()
+    #  |> Repo.preload(team_users: :user)
+
   end
 
   @doc """
@@ -131,7 +137,9 @@ defmodule App.Car do
       ** (Ecto.NoResultsError)
 
   """
-  def get_cars!(id), do: Repo.get!(Cars, id)
+  def get_cars!(id) do
+     Repo.get!(Cars, id) |> Repo.preload(:category)
+  end
 
   @doc """
   Creates a cars.

@@ -3,15 +3,24 @@ defmodule AppWeb.CarsController do
 
   alias App.Car
   alias App.Car.Cars
+  alias App.Car.Category
+  # alias App.Repo
 
   def index(conn, _params) do
     cars = Car.list_cars()
+
+    # IO.puts cars
+
     render(conn, "index.html", cars: cars)
   end
 
   def new(conn, _params) do
     changeset = Car.change_cars(%Cars{})
-    render(conn, "new.html", changeset: changeset)
+    # categories  = Repo.all(Parent) |> Enum.map(&{&1.id, &1.name})
+    categories  = Car.list_categories() |> Enum.map(&{&1.name, &1.id})
+
+    # categories = Repo.all from p in Category, select: {p.name, p.id}
+    render(conn, "new.html", changeset: changeset, categories: categories)
   end
 
   def create(conn, %{"cars" => cars_params}) do
@@ -22,7 +31,8 @@ defmodule AppWeb.CarsController do
         |> redirect(to: Routes.cars_path(conn, :show, cars))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        categories  = Car.list_categories() |> Enum.map(&{&1.name, &1.id})
+        render(conn, "new.html", changeset: changeset, categories: categories)
     end
   end
 
@@ -34,7 +44,8 @@ defmodule AppWeb.CarsController do
   def edit(conn, %{"id" => id}) do
     cars = Car.get_cars!(id)
     changeset = Car.change_cars(cars)
-    render(conn, "edit.html", cars: cars, changeset: changeset)
+    categories  = Car.list_categories() |> Enum.map(&{&1.name, &1.id})
+    render(conn, "edit.html", cars: cars, changeset: changeset, categories: categories)
   end
 
   def update(conn, %{"id" => id, "cars" => cars_params}) do
@@ -47,7 +58,8 @@ defmodule AppWeb.CarsController do
         |> redirect(to: Routes.cars_path(conn, :show, cars))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", cars: cars, changeset: changeset)
+        categories  = Car.list_categories() |> Enum.map(&{&1.name, &1.id})
+        render(conn, "edit.html", cars: cars, changeset: changeset, categories: categories)
     end
   end
 

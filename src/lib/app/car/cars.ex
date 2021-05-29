@@ -19,7 +19,8 @@ defmodule App.Car.Cars do
   @doc false
   def changeset(cars, attrs) do
     cars
-    |> cast(attrs, [:name, :color, :plaque, :renavam, :year, :notes])
-    |> validate_required([:name, :color, :plaque, :renavam, :year, :notes])
+    |> cast(attrs, [:name, :color, :plaque, :renavam, :year, :notes, :category_id])
+    |> cast_assoc(:category, reload: true)
+    |> validate_required([:name, :color, :plaque, :renavam, :year, :notes, :category_id])
   end
 end

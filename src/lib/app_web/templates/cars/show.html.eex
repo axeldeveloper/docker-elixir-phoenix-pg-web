@@ -32,6 +32,11 @@
     <%= @cars.notes %>
   </li>
 
+  <li>
+    <strong>Category:</strong>
+    <%= @cars.category.name %>
+  </li>
+
 </ul>
 
 <span><%= link "Edit", to: Routes.cars_path(@conn, :edit, @cars) %></span>

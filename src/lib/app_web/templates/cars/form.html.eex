@@ -29,6 +29,10 @@
   <%= text_input f, :notes %>
   <%= error_tag f, :notes %>
 
+  <%= label f, :category_id %>
+  <%= select f, :category_id, @categories ,class: "form-control" %>
+  <%= error_tag f, :category_id %>
+
   <div>
     <%= submit "Save" %>
   </div>

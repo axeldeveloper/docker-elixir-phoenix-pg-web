@@ -3,12 +3,14 @@
 <table>
   <thead>
     <tr>
+      <th>#</th>
       <th>Name</th>
       <th>Color</th>
       <th>Plaque</th>
       <th>Renavam</th>
       <th>Year</th>
       <th>Notes</th>
+      <th>Category</th>
 
       <th></th>
     </tr>
@@ -16,12 +18,14 @@
   <tbody>
 <%= for cars <- @cars do %>
     <tr>
+      <td><%= cars.id %></td>
       <td><%= cars.name %></td>
       <td><%= cars.color %></td>
       <td><%= cars.plaque %></td>
       <td><%= cars.renavam %></td>
       <td><%= cars.year %></td>
       <td><%= cars.notes %></td>
+      <td><%= cars.category.name %></td>
 
       <td>
         <span><%= link "Show", to: Routes.cars_path(@conn, :show, cars) %></span>
