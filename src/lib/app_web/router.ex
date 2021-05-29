@@ -17,6 +17,11 @@ defmodule AppWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    resources "/categories", CategoryController
+
+    resources "/cars", CarsController
+
   end
 
   # Other scopes may use custom stacks.

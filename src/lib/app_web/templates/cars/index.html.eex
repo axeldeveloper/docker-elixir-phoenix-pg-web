@@ -1,0 +1,36 @@
+<h1>Listing Cars</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Color</th>
+      <th>Plaque</th>
+      <th>Renavam</th>
+      <th>Year</th>
+      <th>Notes</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for cars <- @cars do %>
+    <tr>
+      <td><%= cars.name %></td>
+      <td><%= cars.color %></td>
+      <td><%= cars.plaque %></td>
+      <td><%= cars.renavam %></td>
+      <td><%= cars.year %></td>
+      <td><%= cars.notes %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.cars_path(@conn, :show, cars) %></span>
+        <span><%= link "Edit", to: Routes.cars_path(@conn, :edit, cars) %></span>
+        <span><%= link "Delete", to: Routes.cars_path(@conn, :delete, cars), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Cars", to: Routes.cars_path(@conn, :new) %></span>

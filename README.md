@@ -94,6 +94,22 @@
 
 # Phoenix  CND
 
+## Generate Crud use context
+
+```zsh
+    $ mix phx.gen.html Car Category categories name:string description:string
+
+    # Add the resource to your browser scope in lib/app_web/router.ex:
+
+    # resources "/categories", CategoryController 
+
+    $ mix phx.gen.html Car Cars cars name:string color:string plaque:string renavam:string \
+    year:integer notes:string category_id:references:categories
+
+    # Add the resource to your browser scope in lib/app_web/router.ex:
+
+    # resources "/cars", CarsController
+``` 
 ## HTML
     docker-compose run --rm phoenix mix phx.gen.html Sales Category categories name:string notes:string
 
