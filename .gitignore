@@ -1,0 +1,6 @@
+/pgdata/*
+./pgdata/*
+.pgdata/*
+../pgdata/*
+tutorial.txt
+.vscode
