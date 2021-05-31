@@ -19,8 +19,8 @@ defmodule AppWeb.Router do
     get "/", PageController, :index
 
     resources "/categories", CategoryController
-
     resources "/cars", CarsController
+    resources "/services", ServiceController
 
   end
 

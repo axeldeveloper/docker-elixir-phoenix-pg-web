@@ -4,3 +4,4 @@
 ../pgdata/*
 tutorial.txt
 .vscode
+./src/assets/package-lock.json

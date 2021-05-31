@@ -205,4 +205,10 @@ defmodule App.Car do
   def change_cars(%Cars{} = cars, attrs \\ %{}) do
     Cars.changeset(cars, attrs)
   end
+
+
+  # colar service alias App.Car.Service
+
+
+
 end

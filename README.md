@@ -78,10 +78,12 @@
     $ cd src
     $ mix ecto.create
     $ mix ecto.migrate
+    $ mix ecto.drop
+    $ mix ecto.create && mix ecto.migrate
 
     or 
-    sudo docker-compose run web mix ecto.create
-    sudo docker-compose run web mix ecto.migrate
+    $ sudo docker-compose run web mix ecto.create
+    $ sudo docker-compose run web mix ecto.migrate
 ```
 
 # Step 5: Start the application
@@ -100,15 +102,18 @@
     $ mix phx.gen.html Car Category categories name:string description:string
 
     # Add the resource to your browser scope in lib/app_web/router.ex:
-
     # resources "/categories", CategoryController 
 
     $ mix phx.gen.html Car Cars cars name:string color:string plaque:string renavam:string \
     year:integer notes:string category_id:references:categories
 
     # Add the resource to your browser scope in lib/app_web/router.ex:
-
     # resources "/cars", CarsController
+
+    $ mix phx.gen.html Car Service services name:string description:string value:decimal
+
+    # Add the resource to your browser scope in lib/app_web/router.ex:
+    # resources "/services", ServiceController
 ``` 
 ## HTML
     docker-compose run --rm phoenix mix phx.gen.html Sales Category categories name:string notes:string
@@ -116,6 +121,9 @@
     docker-compose run --rm phoenix mix phx.gen.json Account User users email:string password:string is_active:boolean 
 
     docker-compose run --rm phoenix mix phx.gen.html Sales Shop shops name:string brand:string address:string notes:string
+
+    mix phx.gen.html ProductDB Product products name:string quantity:integer price:float ppu:float \
+    shop:references:shops category_id:references:categories notes:string
 
 ## Schema
     docker-compose run --rm phoenix mix phx.gen.schema Sale.Category name:string notes:string
@@ -133,3 +141,27 @@
     
     docker-compose run phoenix mix phx.server
     docker-compose up
+
+## webpack
+
+#### problem in mac 
+    use npm install && node node_modules/webpack/bin/webpack.js --mode development
+
+
+
+# Creating the Phoenix project
+
+Run in your terminal:
+
+$ mix phx.new books_api --no-html --no-webpack --binary-id && cd books_api
+
+https://medium.com/coding-artist/full-stack-react-with-phoenix-chapter-8-user-authentication-fb1ff48a5e51
+
+https://github.com/michaelmang/full-stack-react-phoenix
+
+https://medium.com/coding-artist/tagged/phoenix-framework
+
+
+https://dueacaso.it/tech/crud_app_with_phoenix/
+
+https://itnext.io/a-story-of-phoenix-liveview-writing-a-crud-application-d938e52894d4

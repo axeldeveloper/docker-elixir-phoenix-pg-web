@@ -3,7 +3,7 @@ defmodule AppWeb.CarsController do
 
   alias App.Car
   alias App.Car.Cars
-  alias App.Car.Category
+  # alias App.Car.Category
   # alias App.Repo
 
   def index(conn, _params) do
