@@ -10,6 +10,9 @@
         <a href="/categories">Category</a>
       </li>
       <li>
+        <a href="/services">Service</a>
+      </li>
+      <li>
         <a href="https://github.com/phoenixframework/phoenix/blob/v1.5/CHANGELOG.md">v1.5 Changelog</a>
       </li>
     </ul>
