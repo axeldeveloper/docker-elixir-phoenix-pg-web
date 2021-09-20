@@ -10,9 +10,8 @@ defmodule App.Car.Cars do
     field :renavam, :string
     field :year, :integer
     # field :category_id, :id
-
     belongs_to :category, App.Car.Category
-
+    # belongs_to :order, App.Car.Order
     timestamps()
   end
 

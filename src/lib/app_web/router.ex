@@ -22,6 +22,8 @@ defmodule AppWeb.Router do
     resources "/cars", CarsController
     resources "/services", ServiceController
 
+    resources "/orders", OrderController
+
   end
 
   # Other scopes may use custom stacks.
