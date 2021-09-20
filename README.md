@@ -141,6 +141,11 @@
 ## Migrate
     docker-compose run --rm phoenix mix ecto.migrate
 
+    docker-compose run --rm phoenix mix run priv/repo/seeds.exs
+
+    docker-compose run --rm phoenix mix seed
+
+
 ## Routes
     docker-compose run --rm phoenix mix phx.routes
 

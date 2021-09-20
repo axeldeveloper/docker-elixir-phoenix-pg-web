@@ -3,11 +3,9 @@ defmodule App.Car.Category do
   import Ecto.Changeset
 
   schema "categories" do
-    field :description, :string
     field :name, :string
-
+    field :description, :string
     has_many :cars, App.Car.Cars
-
     timestamps()
   end
 

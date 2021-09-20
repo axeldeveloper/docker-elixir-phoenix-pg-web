@@ -3,8 +3,8 @@ defmodule App.Car.Services do
   import Ecto.Changeset
 
   schema "services" do
-    field :description, :string
     field :name, :string
+    field :description, :string
     field :value, :decimal
 
     timestamps()

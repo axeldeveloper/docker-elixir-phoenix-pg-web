@@ -3,13 +3,19 @@ defmodule App.Car.OrderItem do
   import Ecto.Changeset
 
   schema "order_items" do
-    field :discount_value, :decimal
     field :name, :string
     field :order_number, :string
+    field :another_value, :decimal
+    field :cbenef,        :string
+    field :discount_value, :decimal
+    field :freight_value,  :decimal
     field :quantity, :integer
     field :total_value, :decimal
     field :unit_cost_value, :decimal
+    field :unit_value, :decimal
+    field :value_freight, :decimal
     field :service_id, :id
+    field :order_id, :id
 
     timestamps()
   end

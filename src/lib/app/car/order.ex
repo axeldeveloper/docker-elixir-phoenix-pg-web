@@ -7,18 +7,18 @@ defmodule App.Car.Order do
     field :ordered, :string
     field :date_emission, :date
     field :value, :float
-    #field :car_id, :id
-    has_one :cars, App.Car.Cars
+    field :observation, :string
 
+    belongs_to :car, App.Car.Cars
+    # has_one :car, App.Car.Cars
     has_many :items, App.Car.OrderItem
-
     timestamps()
   end
 
   @doc false
   def changeset(order, attrs) do
     order
-    |> cast(attrs, [:ordered, :description, :value])
+    |> cast(attrs, [:ordered, :description, :date_emission, :value, :car_id])
     |> validate_required([:ordered, :description, :value])
   end
 end

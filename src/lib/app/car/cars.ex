@@ -9,9 +9,12 @@ defmodule App.Car.Cars do
     field :plaque, :string
     field :renavam, :string
     field :year, :integer
-    # field :category_id, :id
     belongs_to :category, App.Car.Category
-    # belongs_to :order, App.Car.Order
+
+    # invalid associated has_one :order, App.Car.Order
+
+    #belongs_to :order, App.Car.Order
+
     timestamps()
   end
 
