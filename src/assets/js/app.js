@@ -13,3 +13,10 @@ import "../css/app.scss"
 //     import socket from "./socket"
 //
 import "phoenix_html"
+
+import 'alpinejs';
+
+import { Application } from "stimulus"
+import PageController from "./controllers/pageController"
+const application = Application.start()
+application.register("page", PageController)

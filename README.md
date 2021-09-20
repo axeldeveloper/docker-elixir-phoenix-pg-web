@@ -122,11 +122,18 @@
 
     docker-compose run --rm phoenix mix phx.gen.html Sales Shop shops name:string brand:string address:string notes:string
 
+
+    docker-compose run --rm phoenix mix phx.gen.html App Order orders ordered:string description:string value:float car_id:references:cars
+
+
     mix phx.gen.html ProductDB Product products name:string quantity:integer price:float ppu:float \
     shop:references:shops category_id:references:categories notes:string
 
 ## Schema
     docker-compose run --rm phoenix mix phx.gen.schema Sale.Category name:string notes:string
+
+    docker-compose run --rm phoenix mix phx.gen.schema Car.OrderItem order_item name:string order_number:string quantity:integer discount_value:decimal unit_cost_value:decimal total_value:decimal service_id:references:services
+
 
 ## Database
     docker-compose run phoenix mix ecto.create
@@ -138,7 +145,6 @@
     docker-compose run --rm phoenix mix phx.routes
 
 ## Run 
-    
     docker-compose run phoenix mix phx.server
     docker-compose up
 
@@ -146,7 +152,9 @@
 
 #### problem in mac 
     use npm install && node node_modules/webpack/bin/webpack.js --mode development
+    node node_modules/webpack/bin/webpack.js --mode development
 
+    yarn install && node node_modules/webpack/bin/webpack.js --mode development
 
 
 # Creating the Phoenix project
@@ -165,3 +173,5 @@ https://medium.com/coding-artist/tagged/phoenix-framework
 https://dueacaso.it/tech/crud_app_with_phoenix/
 
 https://itnext.io/a-story-of-phoenix-liveview-writing-a-crud-application-d938e52894d4
+
+https://whatdidilearn.info/2018/02/18/authentication-in-phoenix.html

@@ -10,6 +10,9 @@
         <a href="/categories">Category</a>
       </li>
       <li>
+        <a href="/services">Service</a>
+      </li>
+      <li>
         <a href="https://github.com/phoenixframework/phoenix/blob/v1.5/CHANGELOG.md">v1.5 Changelog</a>
       </li>
     </ul>
@@ -31,4 +34,10 @@
       </li>
     </ul>
   </article>
+
+
+  <div data-controller="page">
+  <input data-target="page.myInput" type="text">
+  <button data-action="click->page#alertText">Click Here</button>
+</div>
 </section>
