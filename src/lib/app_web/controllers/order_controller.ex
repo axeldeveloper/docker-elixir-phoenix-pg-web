@@ -5,8 +5,9 @@ defmodule AppWeb.OrderController do
   alias App.Car.Order
 
   def index(conn, _params) do
-    orders = Car.list_orders()
-    render(conn, "index.html", orders: orders)
+    #orders = Car.list_orders()
+    #render(conn, "index.html", orders: orders)
+    render(conn, "index.html")
   end
 
   def new(conn, _params) do

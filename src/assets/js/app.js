@@ -18,5 +18,7 @@ import 'alpinejs';
 
 import { Application } from "stimulus"
 import PageController from "./controllers/pageController"
+import OrderController from "./controllers/orderController"
 const application = Application.start()
 application.register("page", PageController)
+application.register("order", OrderController)

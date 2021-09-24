@@ -3,14 +3,10 @@ defmodule AppWeb.CarsController do
 
   alias App.Car
   alias App.Car.Cars
-  # alias App.Car.Category
-  # alias App.Repo
+
 
   def index(conn, _params) do
     cars = Car.list_cars()
-
-    # IO.puts cars
-
     render(conn, "index.html", cars: cars)
   end
 
@@ -71,4 +67,5 @@ defmodule AppWeb.CarsController do
     |> put_flash(:info, "Cars deleted successfully.")
     |> redirect(to: Routes.cars_path(conn, :index))
   end
+
 end

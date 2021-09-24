@@ -1,30 +1,22 @@
-<h1>Listing Orders</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Ordered</th>
-      <th>Description</th>
-      <th>Value</th>
-
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for order <- @orders do %>
-    <tr>
-      <td><%= order.ordered %></td>
-      <td><%= order.description %></td>
-      <td><%= order.value %></td>
-
-      <td>
-        <span><%= link "Show", to: Routes.order_path(@conn, :show, order) %></span>
-        <span><%= link "Edit", to: Routes.order_path(@conn, :edit, order) %></span>
-        <span><%= link "Delete", to: Routes.order_path(@conn, :delete, order), method: :delete, data: [confirm: "Are you sure?"] %></span>
-      </td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
-
-<span><%= link "New Order", to: Routes.order_path(@conn, :new) %></span>
+<section class="row">
+<div class="column" data-controller="order">
+  <h1>Listing Orders</h1>
+  <form>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="button" data-action="click->order#testApi" class="btn btn-primary">Submit</button>
+  </form>
+  <div>
+</section>

@@ -154,13 +154,15 @@
     docker-compose up
 
 ## webpack
-
+    
+    node node_modules/webpack/bin/webpack.js --mode development
 #### problem in mac 
     use npm install && node node_modules/webpack/bin/webpack.js --mode development
+    
     node node_modules/webpack/bin/webpack.js --mode development
 
-    yarn install && node node_modules/webpack/bin/webpack.js --mode development
-
+    npm install && node node_modules/webpack/bin/webpack.js --mode development
+    cd src/assets && yarn install && node node_modules/webpack/bin/webpack.js --mode development
 
 # Creating the Phoenix project
 

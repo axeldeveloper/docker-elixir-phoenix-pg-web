@@ -13,7 +13,7 @@
         <a href="/services">Service</a>
       </li>
       <li>
-        <a href="https://github.com/phoenixframework/phoenix/blob/v1.5/CHANGELOG.md">v1.5 Changelog</a>
+        <a href="/orders">Orders</a>
       </li>
     </ul>
   </article>

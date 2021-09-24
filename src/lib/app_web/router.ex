@@ -17,12 +17,16 @@ defmodule AppWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-
     resources "/categories", CategoryController
     resources "/cars", CarsController
+
+
+
     resources "/services", ServiceController
 
-    resources "/orders", OrderController
+    # resources "/orders", OrderController
+    get "/orders", OrderController, :index
+    get "/table/cars", TableController, :cars
 
   end
 
