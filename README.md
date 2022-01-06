@@ -170,15 +170,15 @@ Run in your terminal:
 
 $ mix phx.new books_api --no-html --no-webpack --binary-id && cd books_api
 
-https://medium.com/coding-artist/full-stack-react-with-phoenix-chapter-8-user-authentication-fb1ff48a5e51
+- https://medium.com/coding-artist/full-stack-react-with-phoenix-chapter-8-user-authentication-fb1ff48a5e51
 
-https://github.com/michaelmang/full-stack-react-phoenix
+- https://github.com/michaelmang/full-stack-react-phoenix
 
-https://medium.com/coding-artist/tagged/phoenix-framework
+- https://medium.com/coding-artist/tagged/phoenix-framework
 
 
-https://dueacaso.it/tech/crud_app_with_phoenix/
+- https://dueacaso.it/tech/crud_app_with_phoenix/
 
-https://itnext.io/a-story-of-phoenix-liveview-writing-a-crud-application-d938e52894d4
+- https://itnext.io/a-story-of-phoenix-liveview-writing-a-crud-application-d938e52894d4
 
-https://whatdidilearn.info/2018/02/18/authentication-in-phoenix.html
+- https://whatdidilearn.info/2018/02/18/authentication-in-phoenix.html
