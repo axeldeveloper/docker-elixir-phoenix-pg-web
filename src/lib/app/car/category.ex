@@ -14,5 +14,8 @@ defmodule App.Car.Category do
     category
     |> cast(attrs, [:name, :description])
     |> validate_required([:name, :description])
+
+    #|> validate_format(:email, ~r/@/)
+    #|> validate_inclusion(:age, 18..100)
   end
 end

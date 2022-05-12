@@ -5,7 +5,6 @@ defmodule App.Category do
 
   import Ecto.Query, warn: false
   alias App.Repo
-
   alias App.Car.Category
 
   @doc """
@@ -87,6 +86,15 @@ defmodule App.Category do
   """
   def delete_category(%Category{} = category) do
     Repo.delete(category)
+  end
+
+
+  def pipe_query do
+    Category
+    |> where(city: "Kraków")
+    |> order_by(:temp_lo)
+    |> limit(10)
+    |> Repo.all
   end
 
   @doc """

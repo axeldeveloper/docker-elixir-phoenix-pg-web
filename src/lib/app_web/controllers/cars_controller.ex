@@ -1,8 +1,8 @@
 defmodule AppWeb.CarsController do
   use AppWeb, :controller
 
-  alias App.Car
-  alias App.Car.Cars
+  alias App.Car #Repo
+  alias App.Car.Cars #Model
 
 
   def index(conn, _params) do

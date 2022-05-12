@@ -1,5 +1,15 @@
 # Project Elixir crud Web and docker
 
+
+# Imposrtant
+
+alias ll='ls -al'
+alias sdcbuild='sudo docker-compose build'
+alias sdcmix="sudo docker-compose run --rm phoenix mix" 
+alias sdcup="sudo docker-compose up" 
+alias px-migrate="docker-compose run --rm phoenix mix ecto.migrate"
+
+
 # Step 1: create those files below to your project directory `Dockerfile`
 ```Dockerfile
     FROM elixir:latest
@@ -135,12 +145,19 @@
 ## Generate Crud HTML use context
 
 ```zsh
+    
+    $ docker-compose run --rm phoenix mix phx.gen.context Sales Person persons name:string age:integer
+
+    $ docker-compose run --rm phoenix mix phx.gen.html Car Category categories name:string description:string
+
+    $ docker-compose run --rm phoenix mix phx.gen.context Accounts User users name:string age:integer
+
     $ docker-compose run --rm phoenix mix phx.gen.html Car Category categories name:string description:string
 
     # Add the resource to your browser scope in lib/app_web/router.ex:
     # resources "/categories", CategoryController 
 
-    $ docker-compose run --rm phoenix mix phx.gen.html Car Cars cars name:string color:string plaque:string renavam:string \
+    $ docker-compose run --rm phoenixmix phx.gen.html Car Cars cars name:string color:string plaque:string renavam:string \
     year:integer notes:string category_id:references:categories
 
     # Add the resource to your browser scope in lib/app_web/router.ex:
@@ -157,9 +174,7 @@
 
     docker-compose run --rm phoenix mix phx.gen.html Sales Shop shops name:string brand:string address:string notes:string
 
-
     docker-compose run --rm phoenix mix phx.gen.html App Order orders ordered:string description:string value:float car_id:references:cars
-
 
     docker-compose run --rm phoenix mix phx.gen.html ProductDB Product products name:string quantity:integer price:float ppu:float \
     shop:references:shops category_id:references:categories notes:string
@@ -170,6 +185,17 @@
 
     docker-compose run --rm phoenix mix phx.gen.schema Car.OrderItem order_item name:string order_number:string quantity:integer discount_value:decimal unit_cost_value:decimal total_value:decimal service_id:references:services
 
+## Database
+    docker-compose run phoenix mix ecto.create
+
+## Migrate
+    docker-compose run --rm phoenix mix ecto.migrate
+
+    docker-compose run --rm phoenix mix run priv/repo/seeds.exs
+
+    docker-compose run --rm phoenix mix seed
+
+
 ## Routes
     docker-compose run --rm phoenix mix phx.routes
 
@@ -177,6 +203,8 @@
     docker-compose run phoenix mix phx.server
     docker-compose up
 
+# Creating project api 
+    $ mix phx.new books_api --no-html --no-webpack --binary-id && cd books_api
 
 
 # Creating the Phoenix project
@@ -190,7 +218,6 @@ $ mix phx.new books_api --no-html --no-webpack --binary-id && cd books_api
 - https://github.com/michaelmang/full-stack-react-phoenix
 
 - https://medium.com/coding-artist/tagged/phoenix-framework
-
 
 - https://dueacaso.it/tech/crud_app_with_phoenix/
 

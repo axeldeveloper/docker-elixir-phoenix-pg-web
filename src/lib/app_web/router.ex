@@ -19,11 +19,7 @@ defmodule AppWeb.Router do
     get "/", PageController, :index
     resources "/categories", CategoryController
     resources "/cars", CarsController
-
-
-
     resources "/services", ServiceController
-
     # resources "/orders", OrderController
     get "/orders", OrderController, :index
     get "/table/cars", TableController, :cars

@@ -1,21 +1,22 @@
 defmodule AppWeb.CategoryController do
   use AppWeb, :controller
 
-  alias App.Car
-  alias App.Car.Category
+  alias App.Category, as: RepoCategory
+  alias App.Car.Category #Model
+
 
   def index(conn, _params) do
-    categories = Car.list_categories()
+    categories = RepoCategory.list_categories()
     render(conn, "index.html", categories: categories)
   end
 
   def new(conn, _params) do
-    changeset = Car.change_category(%Category{})
+    changeset = RepoCategory.change_category(%Category{})
     render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"category" => category_params}) do
-    case Car.create_category(category_params) do
+    case RepoCategory.create_category(category_params) do
       {:ok, category} ->
         conn
         |> put_flash(:info, "Category created successfully.")
@@ -27,20 +28,20 @@ defmodule AppWeb.CategoryController do
   end
 
   def show(conn, %{"id" => id}) do
-    category = Car.get_category!(id)
+    category = RepoCategory.get_category!(id)
     render(conn, "show.html", category: category)
   end
 
   def edit(conn, %{"id" => id}) do
-    category = Car.get_category!(id)
-    changeset = Car.change_category(category)
+    category = RepoCategory.get_category!(id)
+    changeset = RepoCategory.change_category(category)
     render(conn, "edit.html", category: category, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "category" => category_params}) do
-    category = Car.get_category!(id)
+    category = RepoCategory.get_category!(id)
 
-    case Car.update_category(category, category_params) do
+    case RepoCategory.update_category(category, category_params) do
       {:ok, category} ->
         conn
         |> put_flash(:info, "Category updated successfully.")
@@ -52,8 +53,8 @@ defmodule AppWeb.CategoryController do
   end
 
   def delete(conn, %{"id" => id}) do
-    category = Car.get_category!(id)
-    {:ok, _category} = Car.delete_category(category)
+    category = RepoCategory.get_category!(id)
+    {:ok, _category} = Category.delete_category(category)
 
     conn
     |> put_flash(:info, "Category deleted successfully.")
