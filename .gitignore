@@ -5,3 +5,9 @@
 tutorial.txt
 .vscode
 ./src/assets/package-lock.json
+src/assets/package-lock.json
+
+/node_modules/*
+./node_modules/*
+.node_modules/*
+../node_modules/*

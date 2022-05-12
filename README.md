@@ -53,13 +53,13 @@
 
 # Step 2: build the image
 ```zsh
-        $ sudo docker-compose build
+    $ sudo docker-compose build
 ```
 
 # Step 3: create the “src” directory and the command “mix” alias.
 ```zsh 
     $ mkdir src
-    $ alias mix="sudo docker-compose run --rm phoenix mix"
+    $ alias mixp="sudo docker-compose run --rm phoenix mix"
 ```
 # Step 4: Initialize and configure a new Phoenix application
 ## “/app” (the default work directory).
@@ -82,8 +82,10 @@
     $ mix ecto.create && mix ecto.migrate
 
     or 
-    $ sudo docker-compose run web mix ecto.create
-    $ sudo docker-compose run web mix ecto.migrate
+    $ cd src
+    $ sudo docker-compose run --rm phoenix mix deps.get
+    $ sudo docker-compose run --rm phoenix mix ecto.create
+    $ sudo docker-compose run --rm phoenix mix ecto.migrate
 ```
 
 # Step 5: Start the application
@@ -91,31 +93,64 @@
 ```zsh
     $ cd ..
     $ sudo docker-compose up
+    $ docker-compose up --build
 ```    
 
 
 # Phoenix  CND
 
-## Generate Crud use context
+# SCSS compile
+
+
+### Node Sass does not yet support your current environment: Linux 64-bit with false
+```zsh
+        npm uninstall --save-dev node-sass
+        and
+        npm install --save-dev node-sass
+```
+### webpack
+```zsh   
+    node node_modules/webpack/bin/webpack.js --mode development
+```
+### problem in mac
+```zsh 
+    use npm install && node node_modules/webpack/bin/webpack.js --mode development
+    
+    node node_modules/webpack/bin/webpack.js --mode development
+
+    npm install && node node_modules/webpack/bin/webpack.js --mode development
+    cd src/assets && yarn install && node node_modules/webpack/bin/webpack.js --mode development
+```
+
+## Database
+    docker-compose run phoenix mix ecto.create
+
+## Migrate
+    docker-compose run --rm phoenix mix ecto.migrate
+
+    docker-compose run --rm phoenix mix run priv/repo/seeds.exs
+
+    docker-compose run --rm phoenix mix seed    
+
+## Generate Crud HTML use context
 
 ```zsh
-    $ mix phx.gen.html Car Category categories name:string description:string
+    $ docker-compose run --rm phoenix mix phx.gen.html Car Category categories name:string description:string
 
     # Add the resource to your browser scope in lib/app_web/router.ex:
     # resources "/categories", CategoryController 
 
-    $ mix phx.gen.html Car Cars cars name:string color:string plaque:string renavam:string \
+    $ docker-compose run --rm phoenix mix phx.gen.html Car Cars cars name:string color:string plaque:string renavam:string \
     year:integer notes:string category_id:references:categories
 
     # Add the resource to your browser scope in lib/app_web/router.ex:
     # resources "/cars", CarsController
 
-    $ mix phx.gen.html Car Service services name:string description:string value:decimal
+    $ docker-compose run --rm phoenix mix phx.gen.html Car Service services name:string description:string value:decimal
 
     # Add the resource to your browser scope in lib/app_web/router.ex:
     # resources "/services", ServiceController
-``` 
-## HTML
+
     docker-compose run --rm phoenix mix phx.gen.html Sales Category categories name:string notes:string
 
     docker-compose run --rm phoenix mix phx.gen.json Account User users email:string password:string is_active:boolean 
@@ -126,25 +161,14 @@
     docker-compose run --rm phoenix mix phx.gen.html App Order orders ordered:string description:string value:float car_id:references:cars
 
 
-    mix phx.gen.html ProductDB Product products name:string quantity:integer price:float ppu:float \
+    docker-compose run --rm phoenix mix phx.gen.html ProductDB Product products name:string quantity:integer price:float ppu:float \
     shop:references:shops category_id:references:categories notes:string
+``` 
 
 ## Schema
     docker-compose run --rm phoenix mix phx.gen.schema Sale.Category name:string notes:string
 
     docker-compose run --rm phoenix mix phx.gen.schema Car.OrderItem order_item name:string order_number:string quantity:integer discount_value:decimal unit_cost_value:decimal total_value:decimal service_id:references:services
-
-
-## Database
-    docker-compose run phoenix mix ecto.create
-
-## Migrate
-    docker-compose run --rm phoenix mix ecto.migrate
-
-    docker-compose run --rm phoenix mix run priv/repo/seeds.exs
-
-    docker-compose run --rm phoenix mix seed
-
 
 ## Routes
     docker-compose run --rm phoenix mix phx.routes
@@ -153,16 +177,7 @@
     docker-compose run phoenix mix phx.server
     docker-compose up
 
-## webpack
-    
-    node node_modules/webpack/bin/webpack.js --mode development
-#### problem in mac 
-    use npm install && node node_modules/webpack/bin/webpack.js --mode development
-    
-    node node_modules/webpack/bin/webpack.js --mode development
 
-    npm install && node node_modules/webpack/bin/webpack.js --mode development
-    cd src/assets && yarn install && node node_modules/webpack/bin/webpack.js --mode development
 
 # Creating the Phoenix project
 

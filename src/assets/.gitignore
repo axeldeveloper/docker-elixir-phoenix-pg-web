@@ -1,0 +1,13 @@
+package-lock.json
+/package-lock.json
+./package-lock.json
+
+yarn.lock
+/yarn.lock
+./yarn.lock
+
+
+/node_modules/*
+./node_modules/*
+.node_modules/*
+../node_modules/*
