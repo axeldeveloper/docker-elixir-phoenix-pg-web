@@ -1,13 +1,16 @@
 # Project Elixir crud Web and docker
+    - Crud
+    - MVVM
+    - stimulus
 
 
 # Imposrtant
 
-alias ll='ls -al'
-alias sdcbuild='sudo docker-compose build'
-alias sdcmix="sudo docker-compose run --rm phoenix mix" 
-alias sdcup="sudo docker-compose up" 
-alias px-migrate="docker-compose run --rm phoenix mix ecto.migrate"
+    alias ll='ls -al'
+    alias sdcbuild='sudo docker-compose build'
+    alias sdcmix="sudo docker-compose run --rm phoenix mix" 
+    alias sdcup="sudo docker-compose up" 
+    alias px-migrate="docker-compose run --rm phoenix mix ecto.migrate"
 
 
 # Step 1: create those files below to your project directory `Dockerfile`
@@ -63,7 +66,7 @@ alias px-migrate="docker-compose run --rm phoenix mix ecto.migrate"
 
 # Step 2: build the image
 ```zsh
-    $ sudo docker-compose build
+    $ sudo docker-compose up --build
 ```
 
 # Step 3: create the “src” directory and the command “mix” alias.

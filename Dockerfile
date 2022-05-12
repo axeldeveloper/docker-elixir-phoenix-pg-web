@@ -1,8 +1,8 @@
 FROM elixir:latest
 
 
-ENV http_proxy='http://proxy.sgi.ms.gov.br:8081' \
-    https_proxy='http://proxy.sgi.ms.gov.br:8081' 
+#ENV http_proxy='http://proxy.sgi.ms.gov.br:8081' \
+#    https_proxy='http://proxy.sgi.ms.gov.br:8081' 
 
 # Install hex package manager
 # By using --force, we don’t need to type “Y” to confirm the installation

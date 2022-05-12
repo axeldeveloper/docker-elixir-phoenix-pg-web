@@ -5,6 +5,7 @@ defmodule App.Repo.Migrations.CreatePersons do
     create table(:persons) do
       add :name, :string
       add :age, :integer
+      add :cpf, :integer
 
       timestamps()
     end

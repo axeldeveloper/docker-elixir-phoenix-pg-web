@@ -16,7 +16,7 @@ defmodule App.Repo.Migrations.CreateOrderItem do
       add :value_freight, :decimal
       add :service_id, references(:services, on_delete: :nothing)
       add :order_id, references(:orders, on_delete: :nothing)
-            #  item_number                  :string
+      #  item_number                  :string
       #  discount_percentage_value    :decimal(, )
       #  quantity_reservation         :decimal(, )
       #  quantity_stock               :integer
